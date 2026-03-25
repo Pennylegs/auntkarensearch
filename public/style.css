@@ -10,8 +10,8 @@
   --plum-mid:      #7c4dbe;
   --plum-bright:   #9b6ee8;
   --plum-soft:     #c4a8f0;
-  --plum-tint:     #f3eeff;
-  --plum-pale:     #f8f4ff;
+  --plum-tint:     #ede5ff;
+  --plum-pale:     #f3eeff;
 
   /* Price tiers */
   --sage:          #2d7a4f;
@@ -27,8 +27,8 @@
   --muted:         #7a6d8a;
   --muted-light:   #b0a4be;
   --surface:       #fdfcff;        /* card background — warm white */
-  --bg:            #f4f0fa;        /* page background */
-  --border:        #e8e2f2;
+  --bg:            #d9d0ee;        /* page background */
+  --border:        #cdc4e0;
 
   /* Shadows — purple-tinted for warmth */
   --shadow-xs:  0 1px 3px rgba(80,40,140,0.07);
@@ -42,7 +42,7 @@
   --radius-sm: 9px;
 }
 
-html { font-size: 19px; scroll-behavior: smooth; }
+html { font-size: 21px; scroll-behavior: smooth; }
 
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
@@ -50,10 +50,9 @@ body {
   color: var(--ink);
   min-height: 100vh;
   line-height: 1.6;
-  /* Subtle warm mesh in the page background */
   background-image:
-    radial-gradient(ellipse 70% 50% at 10% 0%,   rgba(155,110,232,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 90% 100%,  rgba(100,60,200,0.08)  0%, transparent 60%);
+    radial-gradient(ellipse 70% 50% at 10% 0%,   rgba(155,110,232,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%,  rgba(100,60,200,0.14)  0%, transparent 60%);
 }
 
 /* ═══ HERO ════════════════════════════════════════ */
