@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartment Search - Goshen & Orange County, NY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Apartment Search</h1>
+    <p class="subtitle">1-Bedroom Apartments &mdash; Goshen &amp; Orange County, NY</p>
+  </header>
+
+  <main>
+
+    <!-- Search Controls -->
+    <section class="controls" aria-label="Search filters">
+      <div class="control-row">
+        <div class="control-group">
+          <label for="searchInput">Search by keyword or town:</label>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="e.g. Goshen, Middletown, parking..."
+            autocomplete="off"
+          />
+        </div>
+        <div class="control-group">
+          <label for="maxPrice">Maximum monthly rent:</label>
+          <select id="maxPrice">
+            <option value="">Any price</option>
+            <option value="1000">Up to $1,000</option>
+            <option value="1200">Up to $1,200</option>
+            <option value="1400">Up to $1,400</option>
+            <option value="1600">Up to $1,600</option>
+            <option value="1800">Up to $1,800</option>
+            <option value="2000">Up to $2,000</option>
+            <option value="2500">Up to $2,500</option>
+          </select>
+        </div>
+      </div>
+      <button id="searchBtn" class="btn-primary">Search Apartments</button>
+    </section>
+
+    <!-- Status message -->
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <!-- Results count -->
+    <div id="resultCount" class="result-count" aria-live="polite"></div>
+
+    <!-- Listings -->
+    <section id="listings" class="listings" aria-label="Apartment listings"></section>
+
+    <!-- External Links Section -->
+    <section class="external-links">
+      <h2>Search More Sites</h2>
+      <p>Click any button below to search other websites too:</p>
+      <div class="link-grid">
+        <a href="https://www.zillow.com/orange-county-ny/rentals/1-_beds/" target="_blank" rel="noopener" class="ext-btn zillow">
+          Zillow
+          <span class="ext-note">Orange County rentals</span>
+        </a>
+        <a href="https://www.apartments.com/1-bedrooms/orange-county-ny/" target="_blank" rel="noopener" class="ext-btn apartments">
+          Apartments.com
+          <span class="ext-note">Orange County 1BR</span>
+        </a>
+        <a href="https://www.facebook.com/marketplace/goshen-ny/propertyrentals/?minBedrooms=1&maxBedrooms=1" target="_blank" rel="noopener" class="ext-btn facebook">
+          Facebook Marketplace
+          <span class="ext-note">Local rentals</span>
+        </a>
+        <a href="https://hudsonvalley.craigslist.org/search/apa?query=goshen&min_bedrooms=1&max_bedrooms=1" target="_blank" rel="noopener" class="ext-btn craigslist">
+          Craigslist
+          <span class="ext-note">Hudson Valley 1BR</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Listings pulled from Craigslist &mdash; Updated each time you search</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
