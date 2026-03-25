@@ -3,34 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apartment Search - Goshen & Orange County, NY</title>
+  <title>Apartment Finder &mdash; Goshen &amp; Orange County, NY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Apartment Search</h1>
-    <p class="subtitle">1-Bedroom Apartments &mdash; Goshen &amp; Orange County, NY</p>
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-icon" aria-hidden="true">🏠</div>
+      <h1>Apartment Finder</h1>
+      <p class="hero-sub">1-Bedroom Rentals &mdash; Goshen &amp; Orange County, NY</p>
+    </div>
   </header>
 
   <main>
 
-    <!-- Search Controls -->
-    <section class="controls" aria-label="Search filters">
-      <div class="control-row">
-        <div class="control-group">
-          <label for="searchInput">Search by keyword or town:</label>
+    <!-- Search Card -->
+    <section class="search-card" aria-label="Search filters">
+      <h2 class="search-title">Find Your Next Home</h2>
+
+      <div class="filter-grid">
+
+        <div class="field">
+          <label for="searchInput">
+            <span class="field-icon">🔍</span> Town or keyword
+          </label>
           <input
             type="text"
             id="searchInput"
-            placeholder="e.g. Goshen, Middletown, parking..."
+            placeholder="Goshen, Middletown, pets ok, laundry..."
             autocomplete="off"
+            spellcheck="false"
           />
         </div>
-        <div class="control-group">
-          <label for="maxPrice">Maximum monthly rent:</label>
+
+        <div class="field">
+          <label for="minPrice">
+            <span class="field-icon">💰</span> Min rent / month
+          </label>
+          <select id="minPrice">
+            <option value="">No minimum</option>
+            <option value="700">$700+</option>
+            <option value="900">$900+</option>
+            <option value="1100">$1,100+</option>
+            <option value="1300">$1,300+</option>
+            <option value="1500">$1,500+</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="maxPrice">
+            <span class="field-icon">🏷️</span> Max rent / month
+          </label>
           <select id="maxPrice">
-            <option value="">Any price</option>
+            <option value="">No maximum</option>
             <option value="1000">Up to $1,000</option>
             <option value="1200">Up to $1,200</option>
             <option value="1400">Up to $1,400</option>
@@ -40,47 +70,136 @@
             <option value="2500">Up to $2,500</option>
           </select>
         </div>
+
       </div>
-      <button id="searchBtn" class="btn-primary">Search Apartments</button>
+
+      <button id="searchBtn" class="btn-search">
+        <span class="btn-text">Search Apartments</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
     </section>
 
-    <!-- Status message -->
-    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <!-- Status / errors -->
+    <div id="status" role="status" aria-live="polite"></div>
 
-    <!-- Results count -->
-    <div id="resultCount" class="result-count" aria-live="polite"></div>
+    <!-- Results header -->
+    <div id="resultHeader" class="result-header" aria-live="polite"></div>
 
-    <!-- Listings -->
+    <!-- Listing cards -->
     <section id="listings" class="listings" aria-label="Apartment listings"></section>
 
-    <!-- External Links Section -->
-    <section class="external-links">
-      <h2>Search More Sites</h2>
-      <p>Click any button below to search other websites too:</p>
-      <div class="link-grid">
-        <a href="https://www.zillow.com/orange-county-ny/rentals/1-_beds/" target="_blank" rel="noopener" class="ext-btn zillow">
-          Zillow
-          <span class="ext-note">Orange County rentals</span>
+    <!-- ── More Sites ── -->
+    <section class="more-sites">
+      <h2>
+        <span aria-hidden="true">🌐</span> Search Even More Sites
+      </h2>
+      <p>These buttons open other rental websites already set up for Orange County, NY:</p>
+
+      <div class="site-grid">
+
+        <a href="https://www.zillow.com/orange-county-ny/rentals/1-_beds/" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo zillow-logo">Z</div>
+          <div class="site-info">
+            <strong>Zillow</strong>
+            <span>Orange County 1BR</span>
+          </div>
         </a>
-        <a href="https://www.apartments.com/1-bedrooms/orange-county-ny/" target="_blank" rel="noopener" class="ext-btn apartments">
-          Apartments.com
-          <span class="ext-note">Orange County 1BR</span>
+
+        <a href="https://www.apartments.com/1-bedrooms/orange-county-ny/" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo apt-logo">A</div>
+          <div class="site-info">
+            <strong>Apartments.com</strong>
+            <span>Orange County 1BR</span>
+          </div>
         </a>
-        <a href="https://www.facebook.com/marketplace/goshen-ny/propertyrentals/?minBedrooms=1&maxBedrooms=1" target="_blank" rel="noopener" class="ext-btn facebook">
-          Facebook Marketplace
-          <span class="ext-note">Local rentals</span>
+
+        <a href="https://www.trulia.com/for_rent/Orange_County,NY/1p_beds/" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo trulia-logo">T</div>
+          <div class="site-info">
+            <strong>Trulia</strong>
+            <span>Orange County 1BR</span>
+          </div>
         </a>
-        <a href="https://hudsonvalley.craigslist.org/search/apa?query=goshen&min_bedrooms=1&max_bedrooms=1" target="_blank" rel="noopener" class="ext-btn craigslist">
-          Craigslist
-          <span class="ext-note">Hudson Valley 1BR</span>
+
+        <a href="https://hotpads.com/orange-county-ny/apartments-for-rent?numBeds=ONE" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo hot-logo">H</div>
+          <div class="site-info">
+            <strong>HotPads</strong>
+            <span>Orange County 1BR</span>
+          </div>
         </a>
+
+        <a href="https://www.rent.com/new-york/orange-county-apartments?bedrooms=one_bed" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo rent-logo">R</div>
+          <div class="site-info">
+            <strong>Rent.com</strong>
+            <span>Orange County 1BR</span>
+          </div>
+        </a>
+
+        <a href="https://www.zumper.com/apartments-for-rent/orange-county-ny?beds=1" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo zum-logo">Z</div>
+          <div class="site-info">
+            <strong>Zumper</strong>
+            <span>Orange County 1BR</span>
+          </div>
+        </a>
+
+        <a href="https://www.realtor.com/apartments/Orange-County_NY?beds-1" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo rltr-logo">R</div>
+          <div class="site-info">
+            <strong>Realtor.com</strong>
+            <span>Orange County 1BR</span>
+          </div>
+        </a>
+
+        <a href="https://www.padmapper.com/apartments/orange-county-ny?beds=1" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo pad-logo">P</div>
+          <div class="site-info">
+            <strong>PadMapper</strong>
+            <span>Orange County 1BR</span>
+          </div>
+        </a>
+
+        <a href="https://www.facebook.com/marketplace/goshen-ny/propertyrentals/?minBedrooms=1&maxBedrooms=1" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo fb-logo">f</div>
+          <div class="site-info">
+            <strong>Facebook Marketplace</strong>
+            <span>Goshen area rentals</span>
+          </div>
+        </a>
+
+        <a href="https://hudsonvalley.craigslist.org/search/apa?query=orange+county&min_bedrooms=1&max_bedrooms=1" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo cl-logo">CL</div>
+          <div class="site-info">
+            <strong>Craigslist</strong>
+            <span>Hudson Valley 1BR</span>
+          </div>
+        </a>
+
+        <a href="https://www.rentals.com/New-York/Orange-County/?beds=1" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo rentals-logo">R</div>
+          <div class="site-info">
+            <strong>Rentals.com</strong>
+            <span>Orange County 1BR</span>
+          </div>
+        </a>
+
+        <a href="https://nyhousingsearch.gov/search.aspx#" target="_blank" rel="noopener" class="site-card">
+          <div class="site-logo ny-logo">NY</div>
+          <div class="site-info">
+            <strong>NY Housing Search</strong>
+            <span>State affordable housing</span>
+          </div>
+        </a>
+
       </div>
     </section>
 
   </main>
 
   <footer>
-    <p>Listings pulled from Craigslist &mdash; Updated each time you search</p>
+    <p>Live listings from Craigslist Hudson Valley &bull; Refreshed every search &bull; Orange County, NY</p>
   </footer>
 
   <script src="app.js"></script>
